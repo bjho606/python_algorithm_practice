@@ -1,10 +1,11 @@
 # 큐2
 
+from collections import deque
 import sys
 input = sys.stdin.readline
 
 N = int(input())
-q = []
+q = deque()
 
 for i in range(N):
     com = input().split()
@@ -16,7 +17,7 @@ for i in range(N):
         if len(q) <= 0:
             print(-1)
         else:
-            print(q.pop(0))
+            print(q.popleft())
     elif com[0] == 'size':
         print(len(q))
     elif com[0] == 'empty':
@@ -34,5 +35,3 @@ for i in range(N):
             print(-1)
         else:
             print(q[-1])
-    
-    # print(q)
