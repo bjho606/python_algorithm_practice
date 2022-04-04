@@ -43,6 +43,7 @@ def bfs(land):
                 continue
             if graph[next_x][next_y] != land and graph[next_x][next_y] != 0:
                 ans = min(ans, min_dist[cur_x][cur_y])
+                return
             if graph[next_x][next_y] == 0 and min_dist[next_x][next_y] == -1:
                 min_dist[next_x][next_y] = min_dist[cur_x][cur_y] + 1
                 q.append((next_x, next_y))
