@@ -30,19 +30,22 @@ def solution():
         values[start_node] = 0
 
         pq = []
-        heapq.heappush(pq, [start_node, values[start_node]])
+        heapq.heappush(pq, (values[start_node], start_node))
         while pq:
-            cur_node, cur_val = heapq.heappop(pq)
+            cur_val, cur_node = heapq.heappop(pq)
+
+            if values[cur_node] < cur_val:
+                continue
 
             for next in edges[cur_node]:
                 next_node, next_val = next
                 sum_val = cur_val + next_val
                 if values[next_node] > sum_val:
                     values[next_node] = sum_val
-                    heapq.heappush(pq, [next_node, values[next_node]])
+                    heapq.heappush(pq, (values[next_node], next_node))
                 if sum_val <= search_range:
                     visitable[next_node] = 1
-            # print(values)
+            print(values)
         # print(visitable)
         sum_item = 0
         for i in range(n):
