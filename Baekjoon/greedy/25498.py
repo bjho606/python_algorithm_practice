@@ -53,6 +53,7 @@ def solution():
         if next_index_list:
             queue.append((next_index_list, length + 1))
 
+    # [시간초과]
     # def dfs(cur_handle, cur_node, depth, visited):
     #     nonlocal ans
     #     if len(relations[cur_node]) < 0 or depth >= N:
